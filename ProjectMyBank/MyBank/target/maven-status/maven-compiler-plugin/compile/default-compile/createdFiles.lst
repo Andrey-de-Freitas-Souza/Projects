@@ -74,7 +74,6 @@ telas\TelaCadastro2$8.class
 telas\TelaCadastro.class
 telas\TelaMinhasInfo.class
 telas\TelaPrincipal$18.class
-telas\TelaHelp$1.class
 telas\TelaCadastro2$11.class
 telas\TelaCadastro$4.class
 telas\TelaInicial$4.class
@@ -209,7 +208,6 @@ telas\TelaCadastrarPix$1.class
 telas\TelaPrincipal$5.class
 telas\TelaLogin$8.class
 telas\TelaTransferir$4.class
-telas\TelaHelp$6.class
 telas\ConnectionDB.class
 telas\TelaPrincipal$36.class
 telas\TelaDeposito$6.class
@@ -232,6 +230,5 @@ telas\TelaInicial.class
 telas\TelaPrincipal$40.class
 telas\TelaAvisos.class
 telas\TelaAvisos$7.class
-telas\TelaInicial$11.class
 telas\TelaPosCad$7.class
 telas\TelaDeposito$7.class

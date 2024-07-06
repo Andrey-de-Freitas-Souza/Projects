@@ -132,7 +132,7 @@ public class CadastroVendas extends javax.swing.JFrame {
         tblUltimasVendas.setTableHeader(null);
         jScrollPane1.setViewportView(tblUltimasVendas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 150, 738, 530));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 150, 758, 530));
 
         txtFaltaPagar.setBorder(null);
         txtFaltaPagar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.##"))));
@@ -231,7 +231,6 @@ public class CadastroVendas extends javax.swing.JFrame {
 
             int qtd = Integer.parseInt(spnQtdProd.getValue().toString());
             String pagamento = cbxFormaPag.getSelectedItem().toString();
-            System.out.println(pagamento);
             LocalDate dataAtual = LocalDate.now();       
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             String data = dataAtual.format(formatter);
@@ -256,6 +255,11 @@ public class CadastroVendas extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(CadastroVendas.class.getName()).log(Level.SEVERE, null, ex);
         }
+        txtNomeComprador.setText("");
+        cbxProduto.setSelectedIndex(0);
+        spnQtdProd.setValue(0);
+        cbxFormaPag.setSelectedIndex(0);
+        txtFaltaPagar.setText("");
         
         
     }//GEN-LAST:event_btnCadVendaActionPerformed
@@ -320,6 +324,11 @@ public class CadastroVendas extends javax.swing.JFrame {
             Logger.getLogger(CadastroVendas.class.getName()).log(Level.SEVERE, null, ex);
         }
         aviso.setVisible(false);
+        txtNomeComprador.setText("");
+        cbxProduto.setSelectedIndex(0);
+        spnQtdProd.setValue(0);
+        cbxFormaPag.setSelectedIndex(0);
+        txtFaltaPagar.setText("");
     }//GEN-LAST:event_btnConfirmaEditActionPerformed
 
     private void btnCancelaEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaEditActionPerformed

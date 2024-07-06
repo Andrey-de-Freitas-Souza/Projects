@@ -31,7 +31,10 @@ public class TelaVisualizarVendas extends javax.swing.JFrame {
             columnModel.getColumn(4).setPreferredWidth(40);
             columnModel.getColumn(5).setPreferredWidth(80);
             columnModel.getColumn(6).setPreferredWidth(50);
-            columnModel.getColumn(7).setPreferredWidth(80);
+            columnModel.getColumn(7).setPreferredWidth(80);            
+            valorCusto.setText(String.format("%.2f", dao.obtemValorCusto()).replace(".", ","));
+            valorVenda.setText(String.format("%.2f", dao.obtemValorVenda()).replace(".", ","));
+            valorTotal.setText(String.format("%.2f", dao.obtemValorVenda() - dao.obtemValorCusto()).replace(".", ","));
         String[] clientes = null;
         clientes = dao.obterClientes();
         for (String cliente : clientes) {
@@ -52,6 +55,9 @@ public class TelaVisualizarVendas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        valorCusto = new javax.swing.JLabel();
+        valorTotal = new javax.swing.JLabel();
+        valorVenda = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         cbxFormaPag = new javax.swing.JComboBox<>();
         cbxCliente = new javax.swing.JComboBox<>();
@@ -62,6 +68,21 @@ public class TelaVisualizarVendas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        valorCusto.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        valorCusto.setForeground(new java.awt.Color(255, 0, 0));
+        valorCusto.setText("jLabel2");
+        getContentPane().add(valorCusto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 651, -1, -1));
+
+        valorTotal.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        valorTotal.setForeground(new java.awt.Color(0, 204, 0));
+        valorTotal.setText("jLabel3");
+        getContentPane().add(valorTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 651, -1, -1));
+
+        valorVenda.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        valorVenda.setForeground(new java.awt.Color(0, 204, 0));
+        valorVenda.setText("jLabel3");
+        getContentPane().add(valorVenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 651, -1, -1));
 
         jButton4.setText("Voltar");
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -107,9 +128,9 @@ public class TelaVisualizarVendas extends javax.swing.JFrame {
         tblVendas.setTableHeader(null);
         jScrollPane1.setViewportView(tblVendas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 208, 1203, 470));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 208, 1203, 420));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/FundoVisualizarVendas .png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/FundoVisualizarVendas.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -204,5 +225,8 @@ public class TelaVisualizarVendas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblVendas;
+    private javax.swing.JLabel valorCusto;
+    private javax.swing.JLabel valorTotal;
+    private javax.swing.JLabel valorVenda;
     // End of variables declaration//GEN-END:variables
 }

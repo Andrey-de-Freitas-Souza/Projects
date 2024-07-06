@@ -545,4 +545,36 @@ public class DAO {
             return lucro.toString().replace(".", ",");     
     } 
     }
+    public double obtemValorCusto() throws Exception{  
+        String sql = "select * from Vendas left join Produtos on Vendas.id_produto = Produtos.id"; 
+        double valorCusto = 0;
+        try(Connection conexao = ConnectionDB.conectar()){
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            Produtos produto = new Produtos();
+            try(ResultSet rs = ps.executeQuery()){
+                while (rs.next()){
+                double Valor_Compra = rs.getDouble("Valor_Compra");
+                double qtd_produto = rs.getDouble("qtd_Produto");
+                valorCusto += (Valor_Compra*qtd_produto);
+                }                               
+            }
+            return valorCusto;
+        }            
+    }   
+    public double obtemValorVenda() throws Exception{  
+        String sql = "select * from Vendas left join Produtos on Vendas.id_produto = Produtos.id"; 
+        double valorCusto = 0;
+        try(Connection conexao = ConnectionDB.conectar()){
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            Produtos produto = new Produtos();
+            try(ResultSet rs = ps.executeQuery()){
+                while (rs.next()){
+                double Valor_Compra = rs.getDouble("Valor_Venda");
+                double qtd_produto = rs.getDouble("qtd_Produto");
+                valorCusto += (Valor_Compra*qtd_produto);
+                }                               
+            }
+            return valorCusto;
+        }            
+    } 
 }

@@ -226,6 +226,10 @@ public class CadastroProduto extends javax.swing.JFrame {
                 Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        txtNomeProduto.setText("");
+        txtValorCompra.setText("");
+        txtValorVenda.setText("");       
+        spnQtdProduto.setValue(0);
 
     }//GEN-LAST:event_btnCadProdActionPerformed
 
@@ -346,6 +350,10 @@ if (verificaResp == null) {
                 Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        txtNomeProduto.setText("");
+        txtValorCompra.setText("");
+        txtValorVenda.setText("");       
+        spnQtdProduto.setValue(0);
     }//GEN-LAST:event_btnConfirmaEditActionPerformed
 
     private void btnCancelaEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelaEditActionPerformed

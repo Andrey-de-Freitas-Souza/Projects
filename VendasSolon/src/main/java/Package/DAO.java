@@ -464,7 +464,7 @@ public class DAO {
         return vendas;
     }
     public List <Vendas> pegaVendaDinheiro() throws Exception{  
-        String sql = "select * from Vendas left join Produtos on Vendas.id_produto = Produtos.id left join Clientes on Vendas.id_Comprador = Clientes.cod WHERE forma_pagamento = 'Dinheiro'";
+        String sql = "select * from Vendas left join Produtos on Vendas.id_produto = Produtos.id left join Clientes on Vendas.id_Comprador = Clientes.cod WHERE forma_pagamento = 'Dinheiro' or(forma_pagamento like '%D-%' and falta_pagar >0)";
         List <Vendas> vendas = new ArrayList <> ();
         try (Connection conexao = ConnectionDB.conectar();
             PreparedStatement ps = conexao.prepareStatement(sql)){
@@ -489,7 +489,7 @@ public class DAO {
         return vendas;
     }
     public List <Vendas> pegaVendaPix() throws Exception{  
-        String sql = "select * from Vendas left join Produtos on Vendas.id_produto = Produtos.id left join Clientes on Vendas.id_Comprador = Clientes.cod WHERE forma_Pagamento = 'Pix'";
+        String sql = "select * from Vendas left join Produtos on Vendas.id_produto = Produtos.id left join Clientes on Vendas.id_Comprador = Clientes.cod WHERE forma_Pagamento = 'Pix' or(forma_pagamento like '%P-%' and falta_pagar >0)";
         List <Vendas> vendas = new ArrayList <> ();
         try (Connection conexao = ConnectionDB.conectar();
             PreparedStatement ps = conexao.prepareStatement(sql)){
@@ -506,6 +506,7 @@ public class DAO {
                         data_SemFormat.substring(2, 4);
                 double falta_pagar = rs.getDouble("falta_pagar");
                 double total = qtd_Produto*rs.getDouble("Valor_Venda");
+                
     
                 vendas.add(new Vendas(id_venda, nomeComprador, nomeProduto,qtd_Produto,formaPagamento,data_pagamento,falta_pagar,total));
                 }
@@ -523,7 +524,8 @@ public class DAO {
                 int qtd_Produto = rs.getInt("qtd_Produto");
                 double Valor_Venda =  rs.getDouble("Valor_Venda");     
                 double Falta_pagar =  rs.getDouble("Falta_pagar");
-                lucro = lucro + ((qtd_Produto*Valor_Venda)-Falta_pagar);
+                double retirado = rs.getDouble("Retirado");
+                lucro = lucro + (((qtd_Produto*Valor_Venda)-Falta_pagar)- retirado);
                 }                               
             }
             return lucro.toString().replace(".", ",");     
@@ -539,7 +541,8 @@ public class DAO {
                 int qtd_Produto = rs.getInt("qtd_Produto");
                 double Valor_Venda =  rs.getDouble("Valor_Venda");     
                 double Falta_pagar =  rs.getDouble("Falta_pagar");
-                lucro = lucro + ((qtd_Produto*Valor_Venda)-Falta_pagar);
+                double retirado = rs.getDouble("Retirado");
+                lucro = lucro + (((qtd_Produto*Valor_Venda)-Falta_pagar)- retirado);
                 }                               
             }
             return lucro.toString().replace(".", ",");     

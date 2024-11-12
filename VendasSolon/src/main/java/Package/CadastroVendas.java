@@ -115,7 +115,7 @@ public class CadastroVendas extends javax.swing.JFrame {
 
         jScrollPane1.setAutoscrolls(true);
 
-        tblUltimasVendas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tblUltimasVendas.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         tblUltimasVendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -132,7 +132,7 @@ public class CadastroVendas extends javax.swing.JFrame {
         tblUltimasVendas.setTableHeader(null);
         jScrollPane1.setViewportView(tblUltimasVendas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 150, 758, 530));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 150, 780, 530));
 
         txtFaltaPagar.setBorder(null);
         txtFaltaPagar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.##"))));
@@ -194,8 +194,8 @@ public class CadastroVendas extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/FundoCadastroVendas.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/FundoCadastroVendas_1.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

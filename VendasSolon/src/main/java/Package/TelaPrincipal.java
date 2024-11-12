@@ -24,7 +24,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnCadastrarVendas.setBackground(new Color(0,0,0,0));
         btnBanco.setBackground(new Color(0,0,0,0));
          try {
-             jlbLucro.setText(dao.obtemLucro());
+             String lucro = dao.obtemLucro(); // Obtém o valor original
+            lucro = lucro.replace(",", "."); // Substitui a vírgula por ponto
+            double valorLucro = Double.parseDouble(lucro); // Converte para double
+            String lucroFormatado = String.format("%.2f", valorLucro); // Formata com 2 casas decimais
+            lucroFormatado = lucroFormatado.replace(".", ","); 
+             jlbLucro.setText(lucroFormatado);
          } catch (Exception ex) {
              Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
          }

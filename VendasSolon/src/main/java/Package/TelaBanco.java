@@ -36,10 +36,26 @@ public class TelaBanco extends javax.swing.JFrame {
             columnMode2.getColumn(3).setPreferredWidth(50);
             columnMode2.getColumn(4).setPreferredWidth(60);
             columnMode2.getColumn(5).setPreferredWidth(30);
-            lucroDin.setText(dao.obtemValorDinheiro());
-            lucroPix.setText(dao.obtemValorPix());
-            double total = Double.valueOf(dao.obtemValorDinheiro().replace(",", "."))+ Double.valueOf(dao.obtemValorPix().replace(",", "."));
-            valorTotal.setText("R$ " + Double.toString(total).replace(".",","));
+            
+            String lucroDinheiro = dao.obtemValorDinheiro(); // Obtém o valor original
+            lucroDinheiro = lucroDinheiro.replace(",", "."); // Substitui a vírgula por ponto
+            double valorLucroDin = Double.parseDouble(lucroDinheiro); // Converte para double
+            String lucroFormatadoDin = String.format("%.2f", valorLucroDin); // Formata com 2 casas decimais
+            lucroFormatadoDin = lucroFormatadoDin.replace(".", ",");
+            
+            lucroDin.setText(lucroFormatadoDin);
+            
+            String lucroPixTxt = dao.obtemValorPix(); // Obtém o valor original
+            lucroPixTxt = lucroPixTxt.replace(",", "."); // Substitui a vírgula por ponto
+            double valorLucroPix = Double.parseDouble(lucroPixTxt); // Converte para double
+            String lucroFormatadoPix = String.format("%.2f", valorLucroPix); // Formata com 2 casas decimais
+            lucroFormatadoPix = lucroFormatadoPix.replace(".", ",");
+            
+            
+            lucroPix.setText(lucroFormatadoPix);
+            double total = Double.valueOf(dao.obtemValorDinheiro().replace(",", ".")) + Double.valueOf(dao.obtemValorPix().replace(",", "."));
+            String totalFormatado = String.format("%.2f", total).replace(".", ",");
+            valorTotal.setText("R$ " + totalFormatado);
         }
         catch (Exception e){
             e.printStackTrace();

@@ -464,7 +464,7 @@ public class DAO {
         return vendas;
     }
     public List <Vendas> pegaVendaDinheiro() throws Exception{  
-        String sql = "select * from Vendas left join Produtos on Vendas.id_produto = Produtos.id left join Clientes on Vendas.id_Comprador = Clientes.cod WHERE forma_pagamento = 'Dinheiro' or(forma_pagamento like '%D-%' and falta_pagar >0)";
+        String sql = "select * from Vendas left join Produtos on Vendas.id_produto = Produtos.id left join Clientes on Vendas.id_Comprador = Clientes.cod WHERE forma_pagamento = 'Dinheiro'";
         List <Vendas> vendas = new ArrayList <> ();
         try (Connection conexao = ConnectionDB.conectar();
             PreparedStatement ps = conexao.prepareStatement(sql)){
@@ -489,7 +489,7 @@ public class DAO {
         return vendas;
     }
     public List <Vendas> pegaVendaPix() throws Exception{  
-        String sql = "select * from Vendas left join Produtos on Vendas.id_produto = Produtos.id left join Clientes on Vendas.id_Comprador = Clientes.cod WHERE forma_Pagamento = 'Pix' or(forma_pagamento like '%P-%' and falta_pagar >0)";
+        String sql = "select * from Vendas left join Produtos on Vendas.id_produto = Produtos.id left join Clientes on Vendas.id_Comprador = Clientes.cod WHERE forma_Pagamento = 'Pix'";
         List <Vendas> vendas = new ArrayList <> ();
         try (Connection conexao = ConnectionDB.conectar();
             PreparedStatement ps = conexao.prepareStatement(sql)){
@@ -524,8 +524,7 @@ public class DAO {
                 int qtd_Produto = rs.getInt("qtd_Produto");
                 double Valor_Venda =  rs.getDouble("Valor_Venda");     
                 double Falta_pagar =  rs.getDouble("Falta_pagar");
-                double retirado = rs.getDouble("Retirado");
-                lucro = lucro + (((qtd_Produto*Valor_Venda)-Falta_pagar)- retirado);
+                lucro = lucro + ((qtd_Produto*Valor_Venda)-Falta_pagar);
                 }                               
             }
             return lucro.toString().replace(".", ",");     
@@ -541,8 +540,7 @@ public class DAO {
                 int qtd_Produto = rs.getInt("qtd_Produto");
                 double Valor_Venda =  rs.getDouble("Valor_Venda");     
                 double Falta_pagar =  rs.getDouble("Falta_pagar");
-                double retirado = rs.getDouble("Retirado");
-                lucro = lucro + (((qtd_Produto*Valor_Venda)-Falta_pagar)- retirado);
+                lucro = lucro + ((qtd_Produto*Valor_Venda)-Falta_pagar);
                 }                               
             }
             return lucro.toString().replace(".", ",");     

@@ -53,7 +53,6 @@ public class TelaSaida extends javax.swing.JFrame {
     private void initComponents() {
 
         aviso = new javax.swing.JLabel();
-        btnDepFixa = new javax.swing.JButton();
         btnConfirmarEdit = new javax.swing.JButton();
         btnCancelSaida = new javax.swing.JButton();
         btnEditSaida = new javax.swing.JButton();
@@ -68,6 +67,7 @@ public class TelaSaida extends javax.swing.JFrame {
         btnCadSaida = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnDepFixa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,15 +76,6 @@ public class TelaSaida extends javax.swing.JFrame {
         aviso.setForeground(new java.awt.Color(255, 0, 0));
         aviso.setText("Atenção você está editanto a saída");
         getContentPane().add(aviso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, -1, -1));
-
-        btnDepFixa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/DespFixa.png"))); // NOI18N
-        btnDepFixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnDepFixa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDepFixaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnDepFixa, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 540, 210, 130));
 
         btnConfirmarEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/ConfirmarRed.png"))); // NOI18N
         btnConfirmarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -194,6 +185,15 @@ public class TelaSaida extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/TelaSaida (1).png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        btnDepFixa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/DespFixa.png"))); // NOI18N
+        btnDepFixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDepFixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDepFixaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDepFixa, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 540, 210, 130));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
